@@ -8,13 +8,13 @@ db.exec(`
   )
 `);
 db.exec(`
-  INSERT INTO messages (name, message) VALUES ('spongebob','Hell');
+  INSERT INTO messages (name, message) VALUES ('spongebob','Hello');
 `);
 
-const insertStatement = db.prepare(
+const populateStatement = db.prepare(
   `INSERT INTO messages (name, message) VALUES (?, ?)`
 );
 
-insertStatement.run("Name", "Message");
-insertStatement.run("Name", "Message");
-insertStatement.run("Name", "Message");
+populateStatement.run("Name", "Message");
+populateStatement.run("Name", "Message");
+populateStatement.run("Name", "Message");

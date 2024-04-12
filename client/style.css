@@ -54,9 +54,46 @@
   opacity: 0.8;
 }
 
-form {
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 70%;
+  position: relative;
+  flex-direction: column;
+}
+body {
+  background-image: url=
+    (
+      "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.istockphoto.com%2Fvideos%2Ffloral-border&psig=AOvVaw2q98Ipsemq4PrCv8gq2vCt&ust=1712945382821000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCKCJ8fzguoUDFQAAAAAdAAAAABAE"
+    );
+  background: cover;
+}
+#messageform {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  width: 500px;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  gap: 10px;
+  border: solid;
+}
+
+.submit {
+  background-color: aqua;
+  font-weight: bold;
+  transition: transform 1s;
+}
+
+#messageform #username {
+  border: solid;
+  width: 60%;
+  height: 40px;
+  padding: 10px;
+}
+
+#messageform #message {
+  border: solid;
+  width: 100%;
+  height: 100px;
 }

@@ -1,21 +1,37 @@
 import express from "express";
 import cors from "cors";
 const app = express();
+
 app.use(express.json());
 app.use(cors()); // this allows our client to communicate with the serve without being blocked
 
+const detail = [
+  {
+    input: "Ajara",
+    textarea: "I miss you",
+  },
+];
+
 app.get("/", function (request, response) {
-  response.json("You are looking at my root route. How roude!");
+  response.json("You are looking at my root route, how roude!");
 });
 
-app.post("/message", function (request, response) {
-  const newMessage = request.body;
-
-  console.log(newMessage);
-
-  response.json(newMessage);
+app.get("/detail", function (request, response) {
+  response.json(detail);
 });
 
-app.listen(8080, function () {
-  console.log("App is running on port 8080");
+app.post("/detail", function (request, response) {
+  response.json(detail);
+
+  const newDetail = request.body;
+  // this console log will appear in the terminal beacuase that is where the server is running
+  console.log(newDetail);
+
+  // here is the response. At the moment we are just sendning back what the client sent with their own request
+  // soon we will do stuff with that information, like adding it to a database
+  response.json(newDetail);
+});
+
+app.listen("8080", function () {
+  console.log("listening on port 8080");
 });
