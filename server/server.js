@@ -1,6 +1,9 @@
 import express from "express";
 import cors from "cors";
+import Database from "better-sqlite3";
+
 const app = express();
+const db = new Database("database.db");
 
 app.use(express.json());
 app.use(cors()); // this allows our client to communicate with the serve without being blocked
@@ -17,7 +20,9 @@ app.get("/", function (request, response) {
 });
 
 app.get("/detail", function (request, response) {
-  response.json(detail);
+  const messages = db.prepare("SELECT * FROM messages").all();
+
+  response.json(messages);
 });
 
 app.post("/detail", function (request, response) {
