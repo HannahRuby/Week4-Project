@@ -9,18 +9,28 @@
   background-color: antiquewhite;
 }
 
-@media (max-width: 600px) {
-  .body {
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-
-  .container2 {
-    top: 90%;
-    left: 5%;
+@media screen and (min-width: 750px) {
+  header {
+    margin-bottom: 0px;
   }
 }
+
+@media screen and (min-width: 750px) {
+  body {
+    font-size: 1.6rem;
+  }
+}
+
+.container2 {
+  top: 90%;
+  left: 5%;
+}
+
 #header-main nav {
+  background-image: url("https://images.unsplash.com/photo-1546387903-6d82d96ccca6?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   display: grid;
   grid-template-columns: 240px 3fr;
   grid-template-rows: auto;
@@ -48,13 +58,17 @@
   color: rgb(22, 77, 77);
   font-family: Arial, Helvetica, sans-serif;
   text-decoration: none;
-  text-transform: uppercase;
+  text-transform: capitalize;
 }
 #header-main nav :hover {
   opacity: 0.8;
 }
 
 .container {
+  background-image: url("https://images.unsplash.com/photo-1508717272800-9fff97da7e8f?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -62,13 +76,7 @@
   position: relative;
   flex-direction: column;
 }
-body {
-  background-image: url=
-    (
-      "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.istockphoto.com%2Fvideos%2Ffloral-border&psig=AOvVaw2q98Ipsemq4PrCv8gq2vCt&ust=1712945382821000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCKCJ8fzguoUDFQAAAAAdAAAAABAE"
-    );
-  background: cover;
-}
+
 #messageform {
   display: flex;
   flex-direction: column;
@@ -89,11 +97,34 @@ body {
   border: solid;
   width: 60%;
   height: 40px;
-  padding: 10px;
+  padding: 5px;
 }
 
 #messageform #message {
   border: solid;
-  width: 100%;
+  width: 90%;
   height: 100px;
+}
+
+.rating {
+  position: relative;
+  transform: translate(-50% -50%);
+  color: yellow;
+}
+
+.rating label {
+  cursor: pointer;
+  background: yellow;
+  content: "\f005";
+}
+
+.footer {
+  display: flex;
+  flex-direction: center;
+  justify-content: center;
+  position: relative;
+  text-align: center;
+  padding: 20px;
+  border-top: solid;
+  margin-top: 30px;
 }

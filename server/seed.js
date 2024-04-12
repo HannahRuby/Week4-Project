@@ -7,14 +7,20 @@ db.exec(`
     message TEXT
   )
 `);
-db.exec(`
-  INSERT INTO messages (name, message) VALUES ('spongebob','Hello');
-`);
+// db.exec(`
+//   INSERT INTO messages (name, message) VALUES ('Ruby','It isn't cheap but its worth it');
+// `);
 
-const populateStatement = db.prepare(
+const insertStatement = db.prepare(
   `INSERT INTO messages (name, message) VALUES (?, ?)`
 );
 
-populateStatement.run("Name", "Message");
-populateStatement.run("Name", "Message");
-populateStatement.run("Name", "Message");
+insertStatement.run("Dan", "I had the best time here.");
+insertStatement.run("Nikki", "I recommend");
+insertStatement.run("Diane", "Lovely place and staff");
+insertStatement.run("Ruby", "Always recommend");
+insertStatement.run(
+  "John",
+  "Someone cancelled our booking and didn't tell us, got it sorted eventually."
+);
+insertStatement.run("Jon", "Not cheap but worth it");
