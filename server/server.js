@@ -5,13 +5,15 @@ import Database from "better-sqlite3";
 const app = express();
 const db = new Database("database.db");
 
+console.log("Database initialized successfully.");
+
 app.use(express.json());
 app.use(cors()); // this allows our client to communicate with the serve without being blocked
 
 const detail = [
   {
-    input: "Ajara",
-    textarea: "I miss you",
+    name: "name",
+    message: "message",
   },
 ];
 
@@ -20,21 +22,22 @@ app.get("/", function (request, response) {
 });
 
 app.get("/detail", function (request, response) {
-  const messages = db.prepare("SELECT * FROM messages").all();
-
-  response.json(messages);
+  const detail = db.prepare("SELECT * FROM detail").all();
+  console.log("Query executed successfully.");
+  response.json(detail);
 });
 
 app.post("/detail", function (request, response) {
-  response.json(detail);
-
   const newDetail = request.body;
-  // this console log will appear in the terminal beacuase that is where the server is running
-  console.log(newDetail);
 
-  // here is the response. At the moment we are just sendning back what the client sent with their own request
-  // soon we will do stuff with that information, like adding it to a database
-  response.json(newDetail);
+  console.log(newDetail);
+  const insertDetail = db.prepare("INSERT INTO detail (data) VALUES (?)");
+  insertDetail.run(jsonData);
+  const posts = db.prepare("SELECT * FROM detail").all();
+  console.log("Posts retrieved from the database.");
+  const parsedPosts = posts.map((post) => JSON.parse(post.data));
+
+  response.json(parsedPosts);
 });
 
 app.listen("8080", function () {

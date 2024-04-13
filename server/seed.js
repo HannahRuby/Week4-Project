@@ -2,25 +2,25 @@ import Database from "better-sqlite3";
 const db = new Database("database.db");
 
 db.exec(`
-  CREATE TABLE messages (
-    name TEXT,
-    message TEXT
-  )
+    CREATE TABLE detail (
+        name TEXT,
+        message TEXT
+    )
 `);
+
 // db.exec(`
-//   INSERT INTO messages (name, message) VALUES ('Ruby','It isn't cheap but its worth it');
-// `);
+// INSERT INTO detail (name, message) VALUES ("Ruby","It isn't cheap but its worth it") `);
 
 const insertStatement = db.prepare(
-  `INSERT INTO messages (name, message) VALUES (?, ?)`
+  `INSERT INTO detail (name, message) VALUES (?, ?)`
 );
 
-insertStatement.run("Dan", "I had the best time here.");
-insertStatement.run("Nikki", "I recommend");
-insertStatement.run("Diane", "Lovely place and staff");
-insertStatement.run("Ruby", "Always recommend");
+insertStatement.run("Dan said:", "I had the best time here.");
+insertStatement.run("Nikki said:", "I recommend");
+insertStatement.run("Diane said:", "Lovely place and staff");
+insertStatement.run("Ruby said:", "Always recommend");
 insertStatement.run(
-  "John",
+  "John said:",
   "Someone cancelled our booking and didn't tell us, got it sorted eventually."
 );
-insertStatement.run("Jon", "Not cheap but worth it");
+insertStatement.run("Jon said:", "Not cheap but worth it");

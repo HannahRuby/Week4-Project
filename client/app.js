@@ -1,17 +1,18 @@
 const form = document.getElementById("messageform");
-const container = document.getElementById("wrapper1");
+const container1 = document.getElementById("wrapper1");
+const container2 = document.getElementById("comments");
 
 function handleSubmit(event) {
   event.preventDefault();
-  const username = event.target.username.value;
+  const name = event.target.name.value;
   const message = event.target.message.value;
 
-  console.log({ username: username, message: message });
+  console.log({ name: name, message: message });
 
   // make a request to the server with our form data as the body
-  fetch("https://week4-project-poxk.onrender.com", {
+  response = fetch("http://localhost:8080/detail", {
     method: "POST",
-    body: JSON.stringify({ username: username, message: message }),
+    body: JSON.stringify({ name: name, message: message }),
     headers: {
       "Content-Type": "application/json",
     },
@@ -22,22 +23,20 @@ form.addEventListener("submit", handleSubmit);
 
 // get the messages from my api
 async function getDetail() {
-  const response = await fetch("https://week4-project-poxk.onrender.com");
+  const response = await fetch("http://localhost:8080/detail");
   const detail = await response.json();
   console.log(detail);
-
+  // container2.innerHTML = "";
   detail.forEach(function (detail) {
     const p = document.createElement("p");
     const p2 = document.createElement("p2");
 
-    p.textContent = detail.username;
+    p.textContent = detail.name;
     p2.textContent = detail.message;
 
-    wrapper1.appendChild(p);
-    wrapper1.appendChild(p2);
+    container2.appendChild(p);
+    container2.appendChild(p2);
   });
-
-  container.innerHTML = detail;
 }
 
 getDetail();
