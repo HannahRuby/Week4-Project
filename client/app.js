@@ -17,6 +17,7 @@ function handleSubmit(event) {
       "Content-Type": "application/json",
     },
   });
+  location.reload();
 }
 
 form.addEventListener("submit", handleSubmit);
@@ -25,8 +26,8 @@ form.addEventListener("submit", handleSubmit);
 async function getDetail() {
   const response = await fetch("http://localhost:8080/detail");
   const detail = await response.json();
-  console.log(detail);
-  // container2.innerHTML = "";
+  // console.log(detail);
+  // container2.innerHTML = ""'
   detail.forEach(function (detail) {
     const p = document.createElement("p");
     const p2 = document.createElement("p2");
@@ -40,3 +41,11 @@ async function getDetail() {
 }
 
 getDetail();
+
+async function deleteparsedPosts(parsedPosts) {
+  const response = await fetch("http://127.0.0.1:5173/", {
+    method: "DELETE",
+  });
+
+  location.reload();
+}
