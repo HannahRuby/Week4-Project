@@ -139,8 +139,7 @@
   padding: 20px;
   font-size: 1rem;
 }
-
-.container2 .comments {
+.comments #message {
   font-style: bold;
   font: blue;
 }
