@@ -33,11 +33,10 @@ app.post("/detail", function (request, response) {
   console.log(newDetail);
   const insertDetail = db.prepare("INSERT INTO detail (data) VALUES (?)");
   insertDetail.run(jsonData);
+
   const posts = db.prepare("SELECT * FROM detail").all();
   console.log("Posts");
-  const parsedPosts = posts.map((post) => JSON.parse(post.data));
-
-  response.json(parsedPosts);
+  response.json(newDetail);
 });
 
 app.listen("8080", function () {
