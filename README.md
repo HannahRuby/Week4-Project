@@ -4,12 +4,13 @@ Visitor Guestbook
 
 Requirements I met and which goals I achieved for this assignment:
 
-- I Created a page containing a form to leave a message and a list of all the messages that have been left.
+- I created a page containing a form to leave a message and a list of all the messages that have been left.
 
-- I Styled the form and the messages so they're easy to read on multiple kinds of devices so visitors can and read the the website information on my phone or computer
+- I styled the form and the messages so they're easy to read on multiple kinds of devices so visitors can and read the the website information on my phone or computer
 
-- I Created an API POST route to accept the text from your message input form.
-- I Created a database to store the messages, and create a seed file to create the table.
+- I created an API POST route to accept the text from your message input form.
+
+- I created a database to store the messages, and create a seed file to create the table.
 
 Requirements or goals that I were not quite able to achieve:
 
