@@ -34,7 +34,7 @@ app.post("/detail", function (request, response) {
   const insertDetail = db.prepare("INSERT INTO detail (data) VALUES (?)");
   insertDetail.run(jsonData);
   const posts = db.prepare("SELECT * FROM detail").all();
-  console.log("Posts retrieved from the database.");
+  console.log("Posts");
   const parsedPosts = posts.map((post) => JSON.parse(post.data));
 
   response.json(parsedPosts);
